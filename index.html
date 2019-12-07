@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/blood.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+		<link rel="stylesheet" href="style.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section class="slides-section first" data-background-image="assets/AngularJS.png">ANGULAR</section>
+				<section class="slides-section" data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+					<img class="hevery-photo" src="assets/hevery.jpeg" alt="">
+				</section>
+				<section class="slides-section" data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+					<img class="ts-img" src="assets/TS.png" alt="">
+					<div class="lang-img-block">
+						<img class="js-img" src="assets/JS.png" alt="">
+						<img class="dart-img" src="assets//dart.png" alt="">
+					</div>
+				</section>
+				<section>
+					<section class="components-headline" data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						Components
+					</section>
+					<section data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						<img src="assets/component1img.jpg" alt=""><img src="" alt="">
+					</section>
+					<section data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						<img class="componets-img2" src="assets/component2img.jpg" alt="">
+					</section>
+					<section id="section" data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						<pre><code class="code" data-line-numbers>import { Component } from '@angular/core';
+
+@Component({
+	selector: 'my-app',
+	template: `<h1>Добро пожаловать {{name}}!</h1>`
+})
+export class AppComponent { 
+	name: "";
+}
+							</code></pre>
+						<pre><code class="code" data-line-numbers><my-app>Загрузка...</my-app></code></pre>
+					</section>
+				</section>
+				<section>
+					<section class="components-headline" data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						Modules
+					</section>
+					<section data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						<pre><code data-line-numbers>import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule }   from '@angular/forms';
+import { AppComponent }   from './app.component';
+ 
+@NgModule({
+    imports:      [ BrowserModule, FormsModule ],
+    declarations: [ AppComponent ],
+    bootstrap:    [ AppComponent ]
+})
+export class AppModule { }
+						</code></pre>
+						<pre><code data-line-numbers>export class AppModule { }</code></pre>
+					</section>
+				</section>
+				<section>
+					<section class="components-headline" data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						Load of the application
+					</section>
+					<section id="section" data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						<p>main.ts file:</p>
+						<pre><code id="code" data-line-numbers>import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module';
+const platform = platformBrowserDynamic();
+platform.bootstrapModule(AppModule);
+						</code></pre>
+						<p>app.module.ts file:</p>
+						<pre><code data-line-numbers>import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule }   from '@angular/forms';
+import { AppComponent }   from './app.component';
+ 
+@NgModule({
+    imports:      [ BrowserModule, FormsModule ],
+    declarations: [ AppComponent ],
+    bootstrap:    [ AppComponent ]
+})
+export class AppModule { }
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section class="components-headline" data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						Component Styles and Templates
+					</section>
+					<section data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						<p>Setting styles in the @Component directive</p>
+						<pre><code data-line-numbers>import { Component } from '@angular/core';
+ 
+@Component({
+    selector: 'my-app',
+    template: `<h1>Hello Angular 2</h1>`,
+    styles: [` 
+	h1, h2{color:navy;}
+	:host {
+		font-family: Verdana;
+		color: #555;
+	}
+    `]
+})
+export class AppComponent { }
+						</code></pre>
+					</section>
+					<section id="section" data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						<p id="article-headline">Connecting external files</p>
+						<p>app.component.css:</p>
+						<pre><code data-line-numbers>h1, h2{color:navy;}
+:host {
+  font-family: Verdana;
+  color: #555;
+}
+						</code></pre>
+						<p>component code:</p>
+						<pre><code data-line-numbers>import { Component } from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  template: `<h1>Hello Angular 8</h1>`,
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent { }
+						</code></pre>
+					</section>
+					<section data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						<p>app.component.html:</p>
+						<pre><code data-line-numbers><h1>Hello Angular 8</h1>
+						</code></pre>
+						<p>component code:</p>
+						<pre><code data-line-numbers>import { Component } from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent { }
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section class="components-headline" data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						Data binding
+					</section>
+					<section id="section" data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						<p id="article-headline">Interpolation</p>
+						<pre><code data-line-numbers>import { Component } from '@angular/core';
+
+@Component({
+	selector: 'my-app',
+	template: `<p>Имя: {{name}}</p>
+			<p>Возраст: {{age}}</p>`
+})
+export class AppComponent { 
+	name = "Tom";
+	age = 25;
+}
+						</code></pre>
+						<img src="assets/interpolation.jpg" alt="">
+					</section>
+					<section id="section" data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						<p id="article-headline">Binding html element properties</p>
+						<pre><code data-line-numbers>import { Component } from '@angular/core';
+
+@Component({
+	selector: 'my-app',
+	template: `<input type="text" [value]="name" />`
+})
+export class AppComponent { 
+	name = "Tom";
+}
+						</code></pre>
+					</section>
+					<section id="section" data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						<p id="article-headline">Attribute Binding</p>
+						<pre><code data-line-numbers>[attr.attribute_name]="value"</code></pre>
+						<pre><code id="code" data-line-numbers>import { Component} from '@angular/core';
+        
+@Component({
+	selector: 'my-app',
+	template: `<table border="1">
+		<tr><td [attr.colspan]="colspan">One-Two</td></tr>
+		<tr><td>Three</td><td>Four</td></tr>
+		<tr><td>Five</td><td>Six</td></tr>
+		</table>`
+})
+export class AppComponent{ 
+	colspan=2;
+}
+						</code></pre>
+					</section>
+					<section id="section" data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						<p id="article-headline">Event Binding</p>
+						<pre><code id="code" data-line-numbers>import { Component } from '@angular/core';
+      
+@Component({
+	selector: 'my-app',
+	template: `<p>Количество кликов {{count}}</p>
+			<button (click)="increase()">Click</button>`
+})
+export class AppComponent { 
+	count: number=0;
+	increase() : void {
+		this.count++;
+	}
+}
+						</code></pre>
+					</section>
+					<section id="section" data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						<p id="article-headline">Two-way binding</p>
+						<pre><code id="code" data-line-numbers>import { Component } from '@angular/core';
+      
+@Component({
+	selector: 'my-app',
+	template: `<p>Привет {{name}}</p>
+			<input type="text" [(ngModel)]="name" /> <br><br>
+			<input type="text" [(ngModel)]="name" />`
+})
+export class AppComponent { 
+	name:string="Tom";
+}
+						</code></pre>
+						<img src="assets/two_way_binding.jpg" alt="">
+					</section>
+					<section id="section" data-background-image="assets/angular-bg.png" data-background-opacity="0.3">
+						<p id="article-headline">CSS Class Binding</p>
+						<pre><code>[class.class_name]="true/false"</code></pre>
+						<pre><code id="code" data-line-numbers>import { Component} from '@angular/core';
+        
+@Component({
+	selector: 'my-app',
+	template: `<div [class.isredbox]="isRed"></div>
+			<div [class.isredbox]="!isRed"></div>
+			<input type="checkbox" [(ngModel)]="isRed" />`,
+	styles: [`
+		div {width:50px; height:50px; border:1px solid #ccc}
+			.isredbox{background-color:red;}
+	`]
+})
+export class AppComponent{ 
+		
+	isRed = false;
+}
+						</code></pre>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
